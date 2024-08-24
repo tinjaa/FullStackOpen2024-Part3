@@ -11,7 +11,6 @@ app.use(morgan(':method :url :status :response-time ms - :body'))
 const cors = require('cors')
 app.use(cors())
 
-
 let persons = [
     {
         "name": "Arto Hellas",
@@ -89,11 +88,12 @@ app.post('/api/persons', (request, response) => {
 })
 
 app.delete('/api/persons/:id', (request, response) => {
-    const id = request.params.id
+    const id = Number(request.params.id)
     persons = persons.filter(person => person.id !== id)
-
+    console.log(persons)
     response.status(204).end()
 })
+
 
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
