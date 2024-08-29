@@ -6,7 +6,12 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:ui": "rm -rf dist && cd ../osa2/phonebook/ && npm run build && cp -r ../FullStackOpen2024-Part3",
+    "deploy": "fly deploy",
+    "deploy:full": "npm run build:ui && npm run deploy",
+    "logs:prod": "npm run build:ui && npm run deploy",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -27,6 +32,11 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "@stylistic/eslint-plugin-js": "^2.6.4",
+    "eslint": "^9.9.1",
+    "eslint-plugin-react": "^7.35.0",
+    "globals": "^15.9.0",
     "nodemon": "^3.1.4"
   }
 }
