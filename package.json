@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "build:ui": "rm -rf dist && cd ../osa2/phonebook/ && npm run build && cp -r ../FullStackOpen2024-Part3",
+    "build:ui": "rm -rf dist && cd ../FullStackOpen2024/osa2/phonebook/ && npm run build && cp -r dist ../../../FullStackOpen2024-Part3/",
     "deploy": "fly deploy",
     "deploy:full": "npm run build:ui && npm run deploy",
     "logs:prod": "npm run build:ui && npm run deploy",
